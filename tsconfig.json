@@ -16,8 +16,12 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "@vending-machine/*": ["./*"]
-    }
+      "@tests/*": ["../tests/*"],
+      "@vending-machine/*": ["./*"],
+    },
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

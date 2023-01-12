@@ -23,6 +23,7 @@
         "max-params": 0
       }
     ],
-    "destructuring/in-methods-params": "error"
+    "destructuring/in-methods-params": "error",
+    "@typescript-eslint/no-non-null-assertion": "off"
   }
 }
