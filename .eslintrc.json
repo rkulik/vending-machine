@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "import",
+    "destructuring",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-default-export": "error",
+    "@typescript-eslint/consistent-type-definitions": [
+      "error",
+      "type"
+    ],
+    "destructuring/in-params": [
+      "error",
+      {
+        "max-params": 0
+      }
+    ],
+    "destructuring/in-methods-params": "error"
+  }
+}
