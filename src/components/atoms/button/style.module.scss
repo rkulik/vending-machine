@@ -1,0 +1,33 @@
+.button {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid $black;
+  padding: 0.5rem;
+  color: $white;
+  background: $black;
+  border-radius: 0.25rem;
+  display: inline-block;
+  user-select: none;
+
+  &:hover,
+  &:disabled {
+    color: $black;
+    background-color: $gray;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $gray;
+  }
+}
+
+.text {
+  background-color: transparent;
+  color: $black;
+  text-decoration: underline;
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}

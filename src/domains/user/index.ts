@@ -1,15 +1,13 @@
 import { hashPassword } from '@vending-machine/domains/auth';
 import { getProductById } from '@vending-machine/domains/product';
 import { Product } from '@vending-machine/domains/product/entity';
-import { Role, User } from '@vending-machine/domains/user/entity';
+import { User } from '@vending-machine/domains/user/entity';
 import { ConflictError } from '@vending-machine/errors/conflict-error';
 import { NotFoundError } from '@vending-machine/errors/not-found-error';
 import { Buy, Deposit, SaveUser } from '@vending-machine/schemas';
 import { getDb } from '@vending-machine/services/database';
 import { chunk, ChunkResult } from '@vending-machine/utils/chunk';
-
-const DEFAULT_DEPOSIT = 0;
-export const ALLOWED_DEPOSIT_VALUES = [5, 10, 20, 50, 100];
+import { ALLOWED_DEPOSIT_VALUES, DEFAULT_DEPOSIT } from '@vending-machine/utils/deposit';
 
 export const getUserWithPasswordByUsername = async (username: string) => {
   const user = await (await getDb()).getRepository<User>('User').findOne({
@@ -42,7 +40,7 @@ export const createUser = async (input: SaveUser) => {
   const user = new User();
   user.username = input.username;
   user.password = await hashPassword(input.password);
-  user.role = input.role as Role;
+  user.role = input.role;
   user.deposit = DEFAULT_DEPOSIT;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -67,7 +65,7 @@ export const updateUser = async (input: SaveUser, user: User) => {
 
   user.username = input.username;
   user.password = await hashPassword(input.password);
-  user.role = input.role as Role;
+  user.role = input.role;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, ...updatedUser } = await (await getDb()).getRepository<User>('User').save(user);

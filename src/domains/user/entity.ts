@@ -3,11 +3,6 @@ import { Product } from '@vending-machine/domains/product/entity';
 import type { Relation } from 'typeorm';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, RelationId } from 'typeorm';
 
-export enum Role {
-  SELLER = 'seller',
-  BUYER = 'buyer',
-}
-
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -23,7 +18,7 @@ export class User {
   deposit: number;
 
   @Column()
-  role: Role;
+  role: string;
 
   @OneToMany(() => Product, product => product.seller)
   products: Relation<Product[]>;

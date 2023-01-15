@@ -1,5 +1,5 @@
-import { Role } from '@vending-machine/domains/user/entity';
 import { UnauthorizedError } from '@vending-machine/errors/unauthorized-error';
+import { Role } from '@vending-machine/types/user';
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 export const withRole =

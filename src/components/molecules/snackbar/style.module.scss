@@ -1,0 +1,38 @@
+.bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  padding: 1rem;
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+    padding: 1rem 2.5%;
+  }
+}
+
+.snack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
+  border-radius: 0.25rem;
+  color: $white;
+  background-color: $black;
+}
+
+.success {
+  background-color: $green;
+}
+
+.warn {
+  background-color: $orange;
+}
+
+.error {
+  background-color: $red;
+}
+
+.action {
+  margin-left: 1rem;
+}

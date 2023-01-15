@@ -1,7 +1,7 @@
 import { clearDb } from '@tests/utils/clear-db';
 import { createApiServer } from '@tests/utils/create-api-server';
 import { register } from '@vending-machine/domains/auth';
-import { ALLOWED_DEPOSIT_VALUES } from '@vending-machine/domains/user';
+import { ALLOWED_DEPOSIT_VALUES } from '@vending-machine/utils/deposit';
 import { Server } from 'http';
 import request from 'supertest';
 

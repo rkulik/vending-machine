@@ -1,9 +1,9 @@
 import { createProduct, getProducts } from '@vending-machine/domains/product';
 import { Product } from '@vending-machine/domains/product/entity';
-import { Role } from '@vending-machine/domains/user/entity';
 import { withAuthentication } from '@vending-machine/middlewares/with-authentication';
 import { withRole } from '@vending-machine/middlewares/with-role';
 import { saveProductSchema } from '@vending-machine/schemas';
+import { Role } from '@vending-machine/types/user';
 import { apiHandler } from '@vending-machine/utils/api-handler';
 import { validateInput } from '@vending-machine/utils/validate-input';
 import { NextApiRequest, NextApiResponse } from 'next';

@@ -1,6 +1,6 @@
-import { ALLOWED_DEPOSIT_VALUES } from '@vending-machine/domains/user';
-import { Role } from '@vending-machine/domains/user/entity';
-import { InferType, number, object, string } from 'yup';
+import { Role } from '@vending-machine/types/user';
+import { ALLOWED_DEPOSIT_VALUES } from '@vending-machine/utils/deposit';
+import { boolean, InferType, number, object, string } from 'yup';
 
 export const saveProductSchema = object({
   productName: string().required('No product name provided'),
@@ -24,9 +24,17 @@ export const saveProductSchema = object({
 
 export type SaveProduct = InferType<typeof saveProductSchema>;
 
+const passwordSchema = string().required('No password provided').min(8, 'Password must be at least 8 characters long');
+
+export const saveUserFormSchema = object({
+  username: string().required('No username provided'),
+  password: passwordSchema,
+  seller: boolean().required('No seller flag provided'),
+});
+
 export const saveUserSchema = object({
   username: string().required('No username provided'),
-  password: string().required('No password provided').min(8, 'Password must be at least 8 characters long'),
+  password: passwordSchema,
   role: string()
     .required('No role provided')
     .test(
